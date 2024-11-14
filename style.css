@@ -1303,8 +1303,6 @@ header {
 .nav-active header {
   position: relative;
 }
-header.fixed {}
-
 header.nav-up {
   /*top: -(var(--header-height-min));*/
   top: -160px;
@@ -1717,12 +1715,12 @@ header.sticky #navbar ul.menu-list>li>a {
   transition: all 200ms linear;
 }
 
-.nav__list-item a:hover:after {
+/* .nav__list-item a:hover:after {
   height: 4px;
   opacity: 1;
   left: 0;
   width: 100%;
-}
+} */
 
 .nav__list-item a:hover {
   color: rgba(255, 255, 255, 1);
@@ -1732,12 +1730,6 @@ header.sticky #navbar ul.menu-list>li>a {
   color: rgba(255, 255, 255, 1);
 }
 
-.nav__list-item.active-nav a:after {
-  height: 4px;
-  opacity: 1;
-  left: 0;
-  width: 100%;
-}
 
 body.nav-active .nav__content {
   visibility: visible;
@@ -1855,7 +1847,7 @@ body.nav-active .nav__list-item:nth-child(10) {
 
 @media only screen and (max-width: 580px) {
   .nav__list-item {
-    font-size: 5vh;
+    font-size: 3.5vh;
   }
 }
 
@@ -3019,4 +3011,26 @@ footer#footer {
   font-family: "Mr De Haviland"!important;
   font-weight: 500;
   font-size: 25px;
+}
+
+.quote {
+  font-size: 30px;
+  font-style: bold;
+  font-weight:800;
+  line-height: 0;
+
+}
+
+.light-link {
+  color: white;
+  text-decoration: underline;
+}
+
+.light-link:hover {
+  color: #C5A992 ;
+  text-decoration: underline;
+}
+
+.orange {
+  color:#f3b61f;
 }
