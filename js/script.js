@@ -167,29 +167,58 @@
   //Overlay Menu Navigation
   var overlayMenu = function () {
 
-    if(!$('.nav-overlay').length) {
+    if (!$('.nav-overlay').length) {
       return false;
     }
-
+  
     var body = undefined;
     var menu = undefined;
     var menuItems = undefined;
+    var closeButton = undefined; // Variable to reference the close button
     var init = function init() {
       body = document.querySelector('body');
       menu = document.querySelector('.menu-btn');
       menuItems = document.querySelectorAll('.nav__list-item');
+      closeButton = document.querySelector('.close-btn'); // Assume there's a close button
       applyListeners();
     };
+  
     var applyListeners = function applyListeners() {
+      // Toggle menu visibility when the menu button is clicked
       menu.addEventListener('click', function () {
         return toggleClass(body, 'nav-active');
       });
+  
+      // Add close functionality to all nav links (a tags)
+      menuItems.forEach(function(item) {
+        item.querySelector('a').addEventListener('click', function() {
+          closeMenu();
+        });
+      });
+  
+      // Optionally, add close functionality to the close button (X)
+      if (closeButton) {
+        closeButton.addEventListener('click', function() {
+          closeMenu();
+        });
+      }
     };
+  
+    var closeMenu = function() {
+      toggleClass(body, 'nav-active'); // Close the menu by toggling the class
+    };
+  
     var toggleClass = function toggleClass(element, stringClass) {
-      if (element.classList.contains(stringClass)) element.classList.remove(stringClass);else element.classList.add(stringClass);
+      if (element.classList.contains(stringClass)) {
+        element.classList.remove(stringClass);
+      } else {
+        element.classList.add(stringClass);
+      }
     };
+  
     init();
   }
+  
 
   // init Chocolat light box
   var initChocolat = function() {
